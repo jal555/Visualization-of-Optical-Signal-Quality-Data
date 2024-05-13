@@ -45,7 +45,7 @@ def connect_to_server(host, username, password):
     try:
         # Connect to the server:
         print(f"Connecting to {username}@{host}........")
-        client.connect(host, username=username, password=password, timeout=60)
+        client.connect(host, username=username, password=password, timeout=90)
 
         # Execute a command:
         _stdin, _stdout, _stderr = client.exec_command("echo Connection successful!")
@@ -102,9 +102,16 @@ def parse_data(client, data_dir):
         # Introduce a delay to limit the rate of requests:
         time.sleep(TIME_DELAY)
 
-        # Read the file and decode the data:
-        _stdin, _stdout, _stderr = client.exec_command(f"cd {data_dir} && cat {json_file}")
-        decoded_data = _stdout.read().decode()
+        try:
+            # Read the file and decode the data:
+            _stdin, _stdout, _stderr = client.exec_command(f"cd {data_dir} && cat {json_file}")
+            decoded_data = _stdout.read().decode()
+
+        # Handle if there is a timeout due to rate of requests:
+        except paramiko.ssh_exception.SSHException as e:
+            print(f"SSHException on {json_file}: {e}")
+            print("Returning the current optical signal data.")
+            return optical_signal_data_list, lab_names, node_names
 
         # Continue to next file if empty:
         if not decoded_data.strip():
