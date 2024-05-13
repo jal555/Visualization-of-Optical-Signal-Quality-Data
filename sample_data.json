@@ -1,0 +1,58 @@
+{
+    "1682121602.111273": [
+        {
+            "lab-3000c-sh1": [
+                {
+                    "1/2/n1": {
+                        "instantaneous": {
+                            "power": -13.2,
+                            "ber": 0.000104214537714142,
+                            "snr": 19.0,
+                            "dgd": 11,
+                            "qfactor": 11.4,
+                            "chromatic_dispersion": -169,
+                            "carrier_offset": -0.372
+                        },
+                        "fifteen_minute_bin": {
+                            "power": {
+                                "low": -13.3,
+                                "median": -13.2,
+                                "high": -13.2
+                            },
+                            "ber": {
+                                "low": null,
+                                "median": 9.8093250805201e-05,
+                                "high": null
+                            },
+                            "snr": {
+                                "low": 18.9,
+                                "median": 19.1,
+                                "high": 19.3
+                            },
+                            "dgd": {
+                                "low": 10,
+                                "median": 11,
+                                "high": 12
+                            },
+                            "qfactor": {
+                                "low": 11.4,
+                                "median": 11.4,
+                                "high": 11.4
+                            },
+                            "chromatic_dispersion": {
+                                "low": -179,
+                                "median": -171,
+                                "high": -166
+                            },
+                            "carrier_offset": {
+                                "low": -0.381,
+                                "median": -0.367,
+                                "high": -0.354
+                            }
+                        }
+                    }
+                }
+            ]
+        }
+    ]
+}
